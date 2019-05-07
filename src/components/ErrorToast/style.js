@@ -1,3 +1,4 @@
+import styled from 'styled-components'
 export const ErrorToastWrapper = styled.div`
   top: 0px;
   left: 0px;
