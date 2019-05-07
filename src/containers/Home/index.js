@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {actions} from '../../redux/module/home'
+import { actions } from '../../redux/module/home'
+import Header from './components/Header'
 class Home extends Component {
   
   render() {
-    return (
-      <div>
-        我是home
-      </div>
-    )
+    const { seller, goods, ratings } = this.props;
+    if (seller && goods && ratings) { 
+      console.log(seller);
+      return (
+        <div>
+          <Header data={seller}/>
+        </div>
+      )
+    } else {
+      return (
+        <div>没有数据</div>
+      )
+    }
+    
   }
   componentDidMount() {
     this.props.getSellerData()
