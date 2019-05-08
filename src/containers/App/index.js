@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {GlobalStyle} from '../../style'
 import Home from '../Home'
 import Detail from '../Detail'
 import ErrorToast from '../../components/ErrorToast'
@@ -17,6 +18,7 @@ class App extends Component {
             <Route path='/' component={Home}/>
           </Switch>
         </Router>
+        <GlobalStyle />
         {error ? <ErrorToast msg={error} clearError={clearError} />:''}
       </div>
     )

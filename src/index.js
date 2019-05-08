@@ -5,9 +5,11 @@ import { Provider } from 'react-redux'
 import App from './containers/App'
 import store from './redux'
 
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <App>
+    </App>
   </Provider>,
   document.getElementById('root')
 )
