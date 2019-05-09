@@ -15,7 +15,8 @@ class Home extends Component {
       )
     } else {
       return (
-        <div>没有数据</div>
+        <>
+        </>
       )
     }
     

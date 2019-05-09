@@ -67,10 +67,14 @@ export const HeaderSpecialty = styled.div`
 export const HeaderActivity = styled.div`
   position: relative;
   padding-top: 10px;
-  font-size: 12px;
   font-weight: 200;
   color: #fff;
-  & div.desc > span {
+  & div.desc span {
+    vertical-align: middle;
+  }
+  & div.desc > span.text {
+    margin-left: 4px;
+    font-size: 12px;
   }
   & div.count {
     position: absolute;
@@ -79,6 +83,7 @@ export const HeaderActivity = styled.div`
     padding: 0 8px;
     line-height: 24px;
     height: 24px;
+    font-size: 12px;
     border-radius: 14px;
     background-color: rgba(0, 0, 0, 0.2);
   }
