@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { actions } from '../../redux/module/home'
 import Header from './components/Header'
+import './style.css'
 class Home extends Component {
   
   render() {
@@ -9,7 +10,7 @@ class Home extends Component {
     if (seller && goods && ratings) { 
       console.log(seller);
       return (
-        <div>
+        <div className="home-wrapper">
           <Header data={seller}/>
         </div>
       )

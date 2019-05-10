@@ -7,6 +7,7 @@ export const ShopWrapper = styled.div`
   width: 100%;
   height: 100%;
   z-index: 2;
+  transition: all .3s linear;
   .shop-fade-enter {
     transform: translateX(100%);
     opacity: 0;
@@ -39,5 +40,5 @@ export const ShopBackground = styled.div`
   height: 100%;
   z-index: 1;
   filter: blur(10px);
-  background-color: rgba(7, 17, 27, .8);
+  background-color: rgba(7, 17, 27, 0.8);
 `;
