@@ -1,11 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
+
+const LENGTH = 5
+const CLS_ON = 'on'
+const CLS_HALF = 'half'
+const CLS_OFF = 'off'
 
 export default (props) =>{
-  const { size, score } = props
+  const { size, score: _score_ } = props;
   const startType = `start-${size}`;
-  const itemClasses =() => {
+  const itemClasses = () => {
     let result = []
-    const score = Math.floor(this.score * 2) / 2
+    const score = Math.floor(_score_ * 2) / 2
     const hasDecimal = score % 1 !== 0
     const integer = Math.floor(score)
     for (let i = 0; i < integer; i++) {
@@ -18,14 +23,12 @@ export default (props) =>{
       result.push(CLS_OFF)
     }
     return result
-  }
-  render() {
+  };
     return (
       <div className={`star ${startType}`}>
-        {itemClasses.map((itemClass, index) => {
+        {itemClasses().map((itemClass, index) => 
           <span className={`star-item ${itemClass}`} key={index}></span>
-      })}
+      )}
     </div>
     )
-  }
 }

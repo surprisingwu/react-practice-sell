@@ -6,7 +6,7 @@ export default props => {
   const { hide, isShow } = props
   return (
     <CSSTransition
-      unmountOnExit={true}
+      unmountOnExit
       in={isShow}
       timeout={300}
       classNames="shop-fade"

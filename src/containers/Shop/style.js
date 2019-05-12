@@ -8,21 +8,23 @@ export const ShopWrapper = styled.div`
   height: 100%;
   z-index: 2;
   transition: all .3s linear;
-  .shop-fade-enter {
+  &.shop-fade-enter {
     transform: translateX(100%);
     opacity: 0;
   }
-  .shop-fade-enter-active {
+  &.shop-fade-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all .3s linear;
+  }
+  &.shop-fade-exit {
     opacity: 1;
     transform: translateX(0);
   }
-  .shop-fade-exit {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .shop-fade-exit-active {
+  &.shop-fade-exit-active {
     opacity: 0;
     transform: translateX(100%);
+    transition: all .3s linear;
   }
 `;
 
