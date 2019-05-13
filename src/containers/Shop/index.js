@@ -9,6 +9,7 @@ export default props => {
       unmountOnExit
       in={isShow}
       timeout={300}
+      appear={true}
       classNames="shop-fade"
     >
       <ShopWrapper key={Symbol('shop').toString()}>

@@ -80,7 +80,7 @@ export const HeaderActivity = styled.div`
     position: absolute;
     right: 0;
     top: 0;
-    padding: 0 8px;
+    padding: 0 8px 0 10px;
     line-height: 24px;
     height: 24px;
     font-size: 12px;
