@@ -1,4 +1,5 @@
 import React from 'react'
+import {StarWrapper} from './style'
 
 const LENGTH = 5
 const CLS_ON = 'on'
@@ -7,7 +8,7 @@ const CLS_OFF = 'off'
 
 export default (props) =>{
   const { size, score: _score_ } = props;
-  const startType = `start-${size}`;
+  const startType = `star-${size}`;
   const itemClasses = () => {
     let result = []
     const score = Math.floor(_score_ * 2) / 2
@@ -25,10 +26,10 @@ export default (props) =>{
     return result
   };
     return (
-      <div className={`star ${startType}`}>
+      <StarWrapper className={`${startType}`}>
         {itemClasses().map((itemClass, index) => 
           <span className={`star-item ${itemClass}`} key={index}></span>
       )}
-    </div>
+    </StarWrapper>
     )
 }

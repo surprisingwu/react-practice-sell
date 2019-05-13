@@ -54,7 +54,7 @@ export default props => {
           <img src={data.avatar} alt="" width="100%" height="100%" />
         </HeaderBackground>
       </MyHeader>
-      <ShopInfo  hide={() => setShopInfo(false)} isShow={showShopInfo} />
+      <ShopInfo  hide={() => setShopInfo(false)} data={data} isShow={showShopInfo} />
     </Fragment>
   )
 }

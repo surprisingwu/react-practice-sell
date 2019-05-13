@@ -15,7 +15,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path={`/detail/:id`} component={Detail}/>
-            <Route path='/' component={Home}/>
+            <Route path='/'  component={Home}/>
           </Switch>
         </Router>
         <GlobalStyle />
