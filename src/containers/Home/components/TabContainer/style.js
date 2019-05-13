@@ -15,3 +15,5 @@ export const TabWrapper = styled.div`
     color: rgb(77, 85, 93);
   }
 `;
+
+export const SellContainer = styled.div``;

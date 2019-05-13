@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import {GlobalStyle} from '../../style'
 import Home from '../Home'
 import Detail from '../Detail'
+import Seller from '../Home/components/Seller'
 import ErrorToast from '../../components/ErrorToast'
 import {actions} from '../../redux/module/app'
 
@@ -14,6 +15,7 @@ class App extends Component {
       <div className="app">
         <Router>
           <Switch>
+            <Route path='/seller' component={Seller} />
             <Route path={`/detail/:id`} component={Detail}/>
             <Route path='/' component={Home} />
           </Switch>
