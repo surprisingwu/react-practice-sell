@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { actions } from '../../redux/module/home'
 import Header from './components/Header'
+import TabContainer from './components/TabContainer'
 import './style.css'
 class Home extends Component {
   
@@ -11,7 +12,8 @@ class Home extends Component {
       console.log(seller);
       return (
         <div className="home-wrapper">
-          <Header data={seller}/>
+          <Header data={seller} />
+          <TabContainer />
         </div>
       )
     } else {
