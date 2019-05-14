@@ -9,7 +9,6 @@ class Home extends Component {
   render() {
     const { seller, goods, ratings } = this.props;
     if (seller && goods && ratings) { 
-      console.log(seller);
       return (
         <div className="home-wrapper">
           <Header data={seller} />
