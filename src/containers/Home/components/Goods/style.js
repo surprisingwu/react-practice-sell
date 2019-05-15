@@ -80,9 +80,8 @@ export const GoodsDetail = styled.div`
     }
     .list-item {
       display: flex;
-      margin-top: 18px;
-      margin-bottom: 18px;
-      padding-bottom: 8px;
+      padding-top: 18px;
+      padding-bottom: 18px;
       border-bottom: 1px solid rgba(7, 17, 27, 0.1);
       .img {
         flex: 0 0 57px;
@@ -114,6 +113,11 @@ export const GoodsDetail = styled.div`
             margin-left: 12px;
           }
         }
+        .cart_control_wrapper{
+            position: absolute;
+            right: 0;
+            bottom: -6px;
+          }
         .price {
           position: relative;
           font-size: 0;

@@ -1,23 +1,25 @@
-import React, { Component } from 'react'
+import React from 'react'
+import {CartWrapper} from './style'
 
 export default (props) => {
-  const {food, addToCart, decreaseToCart} = props
-  const add = () => {
-    addToCart()
+  const { food, addGood, decreaseGood, good } = props
+  const add = (e) => {
+    const _food_ = food?food:good
+    addGood(_food_)
   }
-  const decrease = () => {
-    decreaseToCart()
+  const decrease = (e) => {
+    decreaseGood(food.id)
   }
     return (
-      <div class="cartcontrol">
-        <div
-          class="cart-decrease"
-          onClick={add}
+      <CartWrapper>
+        {(food&&food.count)>0?<div
+          className="cart-decrease"
+          onClick={decrease}
         >
-          <span class="inner icon-remove_circle_outline" />
-        </div>
-        {food.count > 0 ? <div class="cart-count">{food.count}</div> : null}
-        <div class="cart-add icon-add_circle" onClick={decrease} />
-      </div>
+          <span className="inner icon-remove_circle_outline" />
+        </div>:null}
+        {(food&&food.count) > 0 ? <div className="cart-count">{food.count}</div> : null}
+        <div className="cart-add icon-add_circle" onClick={add} />
+      </CartWrapper>
     )
 }

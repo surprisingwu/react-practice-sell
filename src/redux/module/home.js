@@ -36,6 +36,21 @@ const initialState = {
   isFetching: false
 };
 
+// 为每个food加一个id
+
+const filterData = (data) => {
+  const { goods } = data;
+  let count = 1;
+
+  goods.forEach((item, i) => {
+    const { foods } = item;
+    foods.forEach((good, j) => {
+      good.id = `g-${count++}`
+    })
+  })
+  return data
+}
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.FETCH_SHOP_REQUEST:
@@ -43,7 +58,7 @@ export default (state = initialState, action) => {
     case types.FETCH_SHOP_SUCCESS:
       return {
         ...state,
-        ...action.response,
+        ...filterData(action.response),
         isFetching: false,
       };
     case types.FETCH_SHOP_FAILURE:
