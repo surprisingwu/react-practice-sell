@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import BScroll from 'better-scroll'
 import { GoodsWrapper, GoodsNav, GoodsDetail } from './style'
@@ -35,6 +34,7 @@ class Goods extends Component {
     this.getIndex()
   }
   componentDidMount() {
+    console.log(this.props)
     this.menuScroll = new BScroll(this.menuWrapper.current, {
       click: true
     })
@@ -64,6 +64,9 @@ class Goods extends Component {
     let el = menuList[index]
     this.setActiveIndex(index)
     this.menuScroll.scrollToElement(el, 300, 0, -100)
+  }
+  goToDetail = (id) => {
+    this.props.history.push(`/detail/${id}`)
   }
   setActiveIndex = i => {
     this.setState({
@@ -110,7 +113,7 @@ class Goods extends Component {
                   <ul className="goods">
                     {list.foods.map((item, j) => {
                       return (
-                        <li className="list" key={j}>
+                        <li className="list" key={j} onClick={() => this.goToDetail(item.id)}>
                           <div to={`/detail/${i}`} className="list-item">
                             <img className="img" src={item.image} alt="" />
                             <div className="content">

@@ -79,6 +79,7 @@ export const GoodsDetail = styled.div`
       }
     }
     .list-item {
+      position: relative;
       display: flex;
       padding-top: 18px;
       padding-bottom: 18px;
@@ -90,7 +91,6 @@ export const GoodsDetail = styled.div`
       }
       .content {
         flex: 1;
-        position: relative;
         margin-left: 10px;
         display: flex;
         flex-direction: column;
@@ -116,7 +116,7 @@ export const GoodsDetail = styled.div`
         .cart_control_wrapper{
             position: absolute;
             right: 0;
-            bottom: -6px;
+            bottom: 12px;
           }
         .price {
           position: relative;
