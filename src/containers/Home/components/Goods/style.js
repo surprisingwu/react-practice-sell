@@ -37,8 +37,10 @@ export const GoodsNav = styled.div`
         }
       }
       .content {
+        position: relative;
         display: flex;
         align-items: center;
+        justify-content: center;
         width: 100%;
         height: 100%;
         border-bottom: 1px solid rgba(7, 17, 27, 0.1);
@@ -46,6 +48,24 @@ export const GoodsNav = styled.div`
           line-height: 12px;
           font-size: 12px;
           color: #333;
+        }
+        .select-good-count {
+          position: absolute;
+          right: -8px;
+          top: 3px;
+          .count {
+            display: inline-block;
+            padding: 0 5px;
+            height: 16px;
+            line-height: 16px;
+            text-align: center;
+            border-radius: 16px;
+            font-family: Helvetica;
+            font-weight: 700;
+            font-size: 10px;
+            color: #fff;
+            background: linear-gradient(to right, #fc9153, #f01414);
+          }
         }
       }
     }
@@ -72,8 +92,8 @@ export const GoodsDetail = styled.div`
     padding: 0 18px;
   }
   .list {
-    &:last-child{
-      .list-item{
+    &:last-child {
+      .list-item {
         margin-bottom: 0;
         border-bottom: 0;
       }
@@ -113,11 +133,11 @@ export const GoodsDetail = styled.div`
             margin-left: 12px;
           }
         }
-        .cart_control_wrapper{
-            position: absolute;
-            right: 0;
-            bottom: 12px;
-          }
+        .cart_control_wrapper {
+          position: absolute;
+          right: 0;
+          bottom: 12px;
+        }
         .price {
           position: relative;
           font-size: 0;

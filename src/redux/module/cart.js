@@ -1,6 +1,7 @@
 const initialData = {
   ids: [],
-  foods: {}
+  foods: {},
+  tips: {}
 }
 
 const types = {
@@ -14,37 +15,44 @@ export const actions = {
     type: types.ADD_CART,
     food
   }),
-  decreaseCartCount: (id) => ({
+  decreaseCartCount: (id, navId) => ({
     type: types.DECREASE_CART,
-    id
+    id,
+    navId
   })
 }
 // {ids: ['g-1'],foods: {'g-1':{}}}
 const addHandler = (state, action) => {
   const _state_ = JSON.parse(JSON.stringify(state));
-  const { id, name, price } = action.food
-  if (_state_.foods[id]) { 
-    _state_.foods[id].count++
+  const { id, name, price, navId } = action.food
+  const { tips, ids, foods } = _state_;
+  if (foods[id]) { 
+    foods[id].count++
+    tips[navId].count++
   } else {
-    _state_.ids.push(id)
-    _state_.foods[id] = {
+    ids.push(id)
+    foods[id] = {
       id,
       name,
       price,
       count: 1
     }
+   tips[navId]?tips[navId].count++:(tips[navId] = {count:1})
   }
   return _state_
 }
 const decreaseHandler = (state, action) => {
   const _state_ = JSON.parse(JSON.stringify(state));
-  const id = action.id
-  const { count } = _state_.foods[id]
+  const { id, navId } = action;
+  const { foods, ids, tips } = _state_;
+  const { count } = foods[id]
   if ((count - 1) < 0) {
-    _state_.ids = _state_.ids.filter(i => i !== id)
-    delete _state_.foods[id]
+    _state_.ids = ids.filter(i => i !== id)
+    delete foods[id]
+    tips[navId].count - 1 > 0 ? tips[navId].count-- : (delete tips[navId]);
   } else {
-    _state_.foods[id].count--
+    _state_.foods[id].count--;
+    tips[navId].count--;
   }
   return _state_
 }

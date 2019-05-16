@@ -41,13 +41,15 @@ const initialState = {
 const filterData = (data) => {
   const { goods } = data;
   let count = 1;
-
+  let navCount = 1;
   goods.forEach((item, i) => {
     const { foods } = item;
+    item.id = `n-${navCount++}`
     foods.forEach((good, j) => {
       good.id = `g-${count++}`
     })
   })
+  console.log(data);
   return data
 }
 

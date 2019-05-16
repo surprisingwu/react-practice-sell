@@ -3,14 +3,16 @@ import { CSSTransition } from 'react-transition-group'
 import { CartWrapper } from './style'
 
 export default props => {
-  const { food, addGood, decreaseGood, good } = props
+  const { food, addGood, navId, decreaseGood, good } = props
   const add = e => {
     const _food_ = food ? food : good
-    addGood(_food_)
+    addGood(Object.assign({}, _food_, {
+      navId
+    }))
     e.stopPropagation()
   }
   const decrease = e => {
-    decreaseGood(food.id)
+    decreaseGood(food.id, navId)
     e.stopPropagation()
   }
   return (

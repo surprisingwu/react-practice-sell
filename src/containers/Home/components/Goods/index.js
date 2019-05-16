@@ -94,6 +94,9 @@ class Goods extends Component {
                   onClick={e => this.selectMenu(k, e)}
                 >
                   <div className="content">
+                    <div className="select-good-count">
+                      {cart.tips[nav.id]&&cart.tips[nav.id].count>0?<span className="count">{cart.tips[nav.id].count}</span>:null}
+                    </div>
                     <div className="title">
                       <SupportIcon type={nav.type} size={3} />
                       {nav.name}
@@ -144,6 +147,7 @@ class Goods extends Component {
                                   addGood={addGood}
                                   decreaseGood={decreaseGood}
                                   food={cart.foods[item.id]}
+                                  navId = {list.id}
                                   good={item}
                                 />
                               </div>
@@ -171,8 +175,8 @@ const mapDispatch = dispatch => ({
   addGood(food) {
     dispatch(cartActions.addCartCount(food))
   },
-  decreaseGood(id) {
-    dispatch(cartActions.decreaseCartCount(id))
+  decreaseGood(id, navId) {
+    dispatch(cartActions.decreaseCartCount(id,  navId))
   }
 })
 

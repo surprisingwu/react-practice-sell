@@ -13,6 +13,7 @@ export const TabWrapper = styled.div`
     height: 100%;
     text-align: center;
     font-size: 14px;
+    box-sizing: border-box;
     color: rgb(77, 85, 93);
   }
 `;

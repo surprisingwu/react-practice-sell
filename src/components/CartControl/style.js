@@ -17,17 +17,19 @@ export const CartWrapper = styled.div`
     }
     &.move-enter-active,&.move-exit-active {
       transition: all 0.4s linear;
+    }
+    &.move-enter{
+      opacity: 0;
+      .inner{
+        transform: translate3d(24px, 0, 0) rotate(-180deg);
+      }
+    }
+    &.move-exit-active {
+      opacity: 0;
+      transform: translate3d(24px, 0, 0);
       .inner {
         transform: rotate(180deg);
       }
-    }
-    &.move-enter{
-      transform: translate3d(24px, 0, 0);
-      opacity: 0;
-    }
-   &.move-exit-active {
-      opacity: 0;
-      transform: translate3d(24px, 0, 0);
     }
   }
   .cart-count {
