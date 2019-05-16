@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { actions } from '../../redux/module/home'
 import Header from './components/Header'
 import TabContainer from './components/TabContainer'
+import Footer from '../../components/Footer'
 import './style.css'
 class Home extends Component {
   
@@ -13,6 +14,7 @@ class Home extends Component {
         <div className="home-wrapper">
           <Header data={seller} />
           <TabContainer />
+          <Footer />
         </div>
       )
     } else {
