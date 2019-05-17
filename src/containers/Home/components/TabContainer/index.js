@@ -10,7 +10,7 @@ export default class TabContainer extends Component {
   render() {
     const active = {
       color: 'rgb(240, 20, 20)',
-      'border-bottom': '2px solid rgb(240, 20, 20)'
+      'borderBottom': '2px solid rgb(240, 20, 20)'
     }
     return (
       <Fragment>

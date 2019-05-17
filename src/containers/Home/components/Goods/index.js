@@ -10,10 +10,12 @@ class Goods extends Component {
     super(props)
     this.menuWrapper = React.createRef()
     this.foodsWrapper = React.createRef()
+    this.preventScroll = false;
     this.state = {
       activeIndex: 0,
       listHeight: []
     }
+    // this.activeEl = React.createRef()
   }
   getIndex = () => {
     const { listHeight } = this.state
@@ -28,10 +30,15 @@ class Goods extends Component {
     return 0
   }
   scrollHandler = pos => {
+    if(this.preventScroll) return
     if (pos.y <= 0) {
       this.scrollY = Math.abs(Math.round(pos.y))
     }
+    // 点击左边tab栏的时候, 只滚动右边的goods
     this.getIndex()
+  }
+  scrollEndHandler = () => {
+    this.preventScroll && (this.preventScroll = false);
   }
   componentDidMount() {
     console.log(this.props)
@@ -44,9 +51,11 @@ class Goods extends Component {
     })
     this.calculateHeight()
     this.foodsScroll.on('scroll', this.scrollHandler)
+    this.foodsScroll.on('scrollEnd', this.scrollEndHandler)
   }
   componentWillUnmount() {
-    this.foodsScroll.off(this.scrollHandler)
+    this.foodsScroll.off('scroll',this.scrollHandler)
+    this.foodsScroll.off('scrollEnd',this.scrollEndHandler)
   }
   calculateHeight = () => {
     const { listHeight } = this.state
@@ -73,10 +82,11 @@ class Goods extends Component {
       activeIndex: i
     })
   }
-  selectMenu = index => {
+  selectMenu = (index) => {
     const foodList = this.foodsWrapper.current.querySelectorAll('li.goods-list')
     let el = foodList[index]
     this.setActiveIndex(index)
+    this.preventScroll = true
     this.foodsScroll.scrollToElement(el, 300)
   }
   render() {
@@ -91,9 +101,12 @@ class Goods extends Component {
                 <li
                   className={`nav-item ${k === activeIndex ? 'active' : ''}`}
                   key={k}
-                  onClick={e => this.selectMenu(k, e)}
+                  onClick={(e) => this.selectMenu(k, e)}
                 >
-                  <div className="content">
+                  <div
+                    className="content"
+                    style={activeIndex>0&&k===activeIndex-1?{ borderWidth: '0px' }:{}}
+                  >
                     <div className="select-good-count">
                       {cart.tips[nav.id]&&cart.tips[nav.id].count>0?<span className="count">{cart.tips[nav.id].count}</span>:null}
                     </div>
